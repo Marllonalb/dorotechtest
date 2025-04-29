@@ -15,7 +15,7 @@ public class DynamoDbConfig {
     @Bean
     public DynamoDbClient dynamoDbClient() {
         return DynamoDbClient.builder()
-                .endpointOverride(URI.create("http://localhost:8000"))
+                .endpointOverride(URI.create("http://host.docker.internal:8000"))
                 .region(Region.US_EAST_1)
                 .credentialsProvider(StaticCredentialsProvider.create(
                         AwsBasicCredentials.create("DEFAULTACCESSKEY", "DEFAULTSECRETKEY") //A SENHA TEM DE SER ESSA
