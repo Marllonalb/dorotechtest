@@ -68,4 +68,6 @@ public class ProductRepository {
     public Product findProductById(String id){
         return table.getItem(r -> r.key(k -> k.partitionValue(id)));
     }
+
+    public Product deleteProduct(String id){ return table.deleteItem(r -> r.key(k -> k.partitionValue(id)));}
 }

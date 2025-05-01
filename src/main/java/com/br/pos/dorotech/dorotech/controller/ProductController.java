@@ -34,4 +34,11 @@ public class ProductController {
         List<Product> products = productService.findAllProducts();
         return ResponseEntity.ok(products);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable String id){
+        productService.deleteProduct(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

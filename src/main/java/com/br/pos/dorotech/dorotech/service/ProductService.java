@@ -47,7 +47,7 @@ public class ProductService {
     public Product findProductById(String id){
         Product product = productsRepository.findProductById(id);
         if(product == null){
-            throw new ProductNotFoundException(id + "Not found ! ! ");
+            throw new ProductNotFoundException(id + " Not found ! ! ");
         }
         return product;
     }
@@ -55,6 +55,13 @@ public class ProductService {
     public List<Product> findAllProducts() {
         return productsRepository.findAllProducts();
 
+    }
+
+    public void deleteProduct(String id){
+        Product deletedProduct = productsRepository.deleteProduct(id);
+        if(deletedProduct == null){
+            throw new ProductNotFoundException("Id not found ! ");
+        }
     }
 
 }
